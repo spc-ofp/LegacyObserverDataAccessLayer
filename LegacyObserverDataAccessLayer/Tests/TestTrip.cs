@@ -27,6 +27,17 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
+        public void GetTripsById()
+        {
+            int[] tripIds = { 4391, 4393, 4394 };
+            foreach (var tripId in tripIds)
+            {
+                var trip = repo.FindBy(tripId);
+                Assert.NotNull(trip);
+            }
+        }
+
+        [Test]
         public void GetTripById()
         {
             var trip = repo.FindBy(10) as PurseSeineTrip;
