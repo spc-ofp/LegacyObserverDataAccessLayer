@@ -31,6 +31,7 @@ namespace Spc.Ofp.Legacy.Observer.Tests
                     Assert.False(String.IsNullOrEmpty(header.StaffCode));
                     Assert.False(String.IsNullOrEmpty(header.ProgramCode));
                     Assert.False(String.IsNullOrEmpty(header.SpcTripNumber));
+                    Assert.False(String.IsNullOrEmpty(header.GearCode));
                 }
             }
         }

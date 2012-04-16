@@ -24,6 +24,12 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string TripNumber { get; set; }
 
+        public virtual DateTime? DepartureDate { get; set; }
+
+        public virtual DateTime? ReturnDate { get; set; }
+
+        public virtual string GearCode { get; set; }
+
         public virtual string FfaTripNumber { get; set; }
 
         public virtual string CkTripNumber { get; set; }

@@ -22,6 +22,9 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.TripNumber, "tripno");
             Map(x => x.StaffCode, "obsv_id");
             Map(x => x.ProgramCode, "obs_prg_id");
+            Map(x => x.DepartureDate, "o_dep_date");
+            Map(x => x.ReturnDate, "o_ret_date");
+            Map(x => x.GearCode, "gr_id");
             Map(x => x.CkTripNumber, "cktripno");
             Map(x => x.FmTripNumber, "fmtripno");
             Map(x => x.FfaTripNumber, "ffatripno");
