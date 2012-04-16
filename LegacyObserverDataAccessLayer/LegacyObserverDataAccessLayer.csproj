@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87826297-7636-4CD1-83E9-CEEA5165850E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spc.Ofp.Legacy.Observer</RootNamespace>
+    <AssemblyName>LegacyObserverDal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.717\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Spc.Ofp.Common.Repo">
+      <HintPath>externals\Spc.Ofp.Common.Repo.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.1.0.79.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\packages\System.Data.SQLite.1.0.79.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Gen6Activity.cs" />
+    <Compile Include="Common\WellContentType.cs" />
+    <Compile Include="DataService.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="Entities\MarineDevice.cs" />
+    <Compile Include="Entities\PsCrewMember.cs" />
+    <Compile Include="Entities\Electronics.cs" />
+    <Compile Include="Entities\FieldStaff.cs" />
+    <Compile Include="Entities\FishTransfer.cs" />
+    <Compile Include="Entities\Gen3Form.cs" />
+    <Compile Include="Entities\LongLineTrip.cs" />
+    <Compile Include="Entities\PollutionDetail.cs" />
+    <Compile Include="Entities\PollutionHeader.cs" />
+    <Compile Include="Entities\Port.cs" />
+    <Compile Include="Entities\PsDay.cs" />
+    <Compile Include="Entities\PsFishingGear.cs" />
+    <Compile Include="Entities\PsFishingSet.cs" />
+    <Compile Include="Entities\PsLengthFrequencyDetail.cs" />
+    <Compile Include="Entities\PsLengthFrequencyHeader.cs" />
+    <Compile Include="Entities\PsSetCatch.cs" />
+    <Compile Include="Entities\PsVesselAttributes.cs" />
+    <Compile Include="Entities\PsWellContent.cs" />
+    <Compile Include="Entities\PsWellReconciliation.cs" />
+    <Compile Include="Entities\PurseSeineTrip.cs" />
+    <Compile Include="Entities\SafetyInspection.cs" />
+    <Compile Include="Entities\Sighting.cs" />
+    <Compile Include="Entities\SpillDetail.cs" />
+    <Compile Include="Entities\SsInteraction.cs" />
+    <Compile Include="Entities\Trip.cs" />
+    <Compile Include="Entities\TripHeader.cs" />
+    <Compile Include="Entities\Vessel.cs" />
+    <Compile Include="Entities\WasteDetail.cs" />
+    <Compile Include="Mappings\MarineDeviceMap.cs" />
+    <Compile Include="Mappings\PsCrewMemberMap.cs" />
+    <Compile Include="Mappings\ElectronicsMap.cs" />
+    <Compile Include="Mappings\FieldStaffMap.cs" />
+    <Compile Include="Mappings\FishTransferMap.cs" />
+    <Compile Include="Mappings\Gen3FormMap.cs" />
+    <Compile Include="Mappings\PollutionDetailMap.cs" />
+    <Compile Include="Mappings\PollutionHeaderMap.cs" />
+    <Compile Include="Mappings\PortMap.cs" />
+    <Compile Include="Entities\PsDailyEvent.cs" />
+    <Compile Include="Mappings\PsDailyEventMap.cs" />
+    <Compile Include="Mappings\PsDayMap.cs" />
+    <Compile Include="Mappings\PsFishingGearMap.cs" />
+    <Compile Include="Mappings\PsFishingSetMap.cs" />
+    <Compile Include="Mappings\PsLengthFrequencyDetailMap.cs" />
+    <Compile Include="Mappings\PsLengthFrequencyHeaderMap.cs" />
+    <Compile Include="Mappings\PsSetCatchMap.cs" />
+    <Compile Include="Mappings\PsVesselAttributesMap.cs" />
+    <Compile Include="Mappings\PsWellContentMap.cs" />
+    <Compile Include="Mappings\PsWellReconciliationMap.cs" />
+    <Compile Include="Mappings\SafetyInspectionMap.cs" />
+    <Compile Include="Mappings\SightingMap.cs" />
+    <Compile Include="Mappings\SsInteractionMap.cs" />
+    <Compile Include="Mappings\TripHeaderMap.cs" />
+    <Compile Include="Mappings\TripMap.cs" />
+    <Compile Include="Mappings\VesselMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\TestDateTimeExtensions.cs" />
+    <Compile Include="Tests\TestElectronics.cs" />
+    <Compile Include="Tests\TestFieldStaff.cs" />
+    <Compile Include="Tests\TestGen3Form.cs" />
+    <Compile Include="Tests\TestPort.cs" />
+    <Compile Include="Tests\TestSetCatch.cs" />
+    <Compile Include="Tests\TestSsInteraction.cs" />
+    <Compile Include="Tests\TestTrip.cs" />
+    <Compile Include="Tests\TestTripHeader.cs" />
+    <Compile Include="Tests\TestVesselAttributes.cs" />
+    <Compile Include="TrueFalseType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
