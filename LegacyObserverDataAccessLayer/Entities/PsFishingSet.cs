@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PsFishingSet.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="PsFishingSet.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -75,6 +75,14 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual int? YellowfinPercentage { get; set; }
 
         public virtual int? BigeyePercentage { get; set; }
+
+        public virtual int? LargeYellowfinPercentage { get; set; }
+
+        public virtual int? LargeYellowfinCount { get; set; }
+
+        public virtual int? LargeBigeyePercentage { get; set; }
+
+        public virtual int? LargeBigeyeCount { get; set; }
 
         public virtual int? RecoveredTagCount { get; set; }
 

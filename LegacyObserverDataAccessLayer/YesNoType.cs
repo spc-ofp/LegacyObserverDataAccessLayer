@@ -1,13 +1,12 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TrueFalseType.cs" company="Secretariat of the Pacific Community">
-// Copyright (C) 2012 Secretariat of the Pacific Community
+// <copyright file="YesNoType.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2011 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
 namespace Spc.Ofp.Legacy.Observer
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using NHibernate;
     using NHibernate.SqlTypes;
@@ -17,16 +16,9 @@ namespace Spc.Ofp.Legacy.Observer
     /// I'm done messing with Query Substitutions that don't appear to work.
     /// http://lostechies.com/rayhouston/2008/03/23/mapping-strings-to-booleans-using-nhibernate-s-iusertype/
     /// </summary>
-    public class TrueFalseType : IUserType
+    [Serializable]
+    public class YesNoType : IUserType
     {
-        private static ISet<string> POSSIBLES = new HashSet<string>()
-        {
-            "t",
-            "true",
-            "f",
-            "false"
-        };
-        
         public bool IsMutable
         {
             get { return false; }
@@ -34,30 +26,33 @@ namespace Spc.Ofp.Legacy.Observer
 
         public Type ReturnedType
         {
-            get { return typeof(TrueFalseType); }
+            get { return typeof(YesNoType); }
         }
 
         public SqlType[] SqlTypes
         {
-            get { return new[] { NHibernateUtil.Boolean.SqlType }; }
+            get { return new[] { NHibernateUtil.String.SqlType }; }
         }
 
         public object NullSafeGet(IDataReader rs, string[] names, object owner)
         {
             var obj = NHibernateUtil.String.NullSafeGet(rs, names[0]);
 
-            if (obj == null) return null;
-
-            var trueFalse = ((string)obj).ToLower();
-            System.Diagnostics.Debug.WriteLine("trueFalse is " + trueFalse);
-
-            if (!POSSIBLES.Contains(trueFalse))
+            if (obj == null)
             {
-                throw new Exception(String.Format("Couldn't parse value {0} as true or false", trueFalse));
+                return null;
+            }             
+
+            var yesNo = (string)obj;
+
+            if (yesNo != "Y" && yesNo != "N")
+            {
+                // Be more accepting of unknown values.  If it's not Y or N, treat it like it's null
+                //throw new Exception(String.Format("Expected data to be 'Y' or 'N' but was '{0}'.", yesNo));
+                return null;
             }
-            bool isTrue = (trueFalse == "t" || trueFalse == "true");
-            System.Diagnostics.Debug.WriteLine("isTrue: " + isTrue);
-            return isTrue;
+
+            return yesNo == "Y";
         }
 
         public void NullSafeSet(IDbCommand cmd, object value, int index)
@@ -68,8 +63,8 @@ namespace Spc.Ofp.Legacy.Observer
             }
             else
             {
-                var isTrue = (bool)value;
-                ((IDataParameter)cmd.Parameters[index]).Value = isTrue ? "t" : "f";
+                var yes = (bool)value;
+                ((IDataParameter)cmd.Parameters[index]).Value = yes ? "Y" : "N";
             }
         }
 

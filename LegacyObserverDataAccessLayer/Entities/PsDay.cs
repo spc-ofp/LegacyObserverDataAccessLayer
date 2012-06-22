@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PsDay.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="PsDay.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -42,6 +42,10 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual int? FadFish { get; set; }
 
         public virtual int? FadNoFish { get; set; }
+
+        public virtual bool? HasGen3Event { get; set; }
+
+        public virtual int? JournalPage { get; set; }
 
         public virtual IList<PsDailyEvent> LogEntries { get; protected internal set; }
 

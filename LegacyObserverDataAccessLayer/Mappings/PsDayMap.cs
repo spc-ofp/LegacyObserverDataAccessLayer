@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PsDayMap.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="PsDayMap.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -28,6 +28,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.FreeSchools, "sch_fsh");
             Map(x => x.FadFish, "fad_fsh");
             Map(x => x.FadNoFish, "fadnofsh");
+            Map(x => x.HasGen3Event, "gen3_event");
+            Map(x => x.JournalPage, "journal_page");
 
             HasMany(x => x.LogEntries).KeyColumn("s_day_id");
 

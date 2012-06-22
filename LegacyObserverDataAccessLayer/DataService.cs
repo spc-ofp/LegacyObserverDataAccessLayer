@@ -84,10 +84,10 @@ namespace Spc.Ofp.Legacy.Observer
         private static ISessionFactory CreateSessionFactory()
         {
             IPersistenceConfigurer cfg =
-                SQLiteConfiguration.Standard.ConnectionString(
+                PostgreSQLConfiguration.Standard.ConnectionString(
                     c => c
                         .FromConnectionStringWithKey("Observer"))
-                .QuerySubstitutions("true 1, false 0, True 1, False 0, yes 'Y', no 'N', bw_or ^, bw_and &, bw_not ~")
+                .QuerySubstitutions("y 1, n 0, Y 1, N 0, t 1, f 0, true 1, false 0, True 1, False 0, yes 'Y', no 'N', bw_or ^, bw_and &, bw_not ~")
 #if DEBUG
                 .ShowSql()
 #endif                

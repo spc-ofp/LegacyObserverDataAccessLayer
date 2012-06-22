@@ -38,11 +38,11 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetPortById()
+        public void GetPortById([Values(207)] int portId)
         {
-            var port = repo.FindBy(207);
+            var port = repo.FindBy(portId);
             Assert.NotNull(port);
-            Assert.AreEqual(207, port.Id);
+            Assert.AreEqual(portId, port.Id);
             Assert.NotNull(port.Name);
             Assert.True("CHUUK".Equals(port.Name.Trim(), StringComparison.CurrentCultureIgnoreCase));
         }

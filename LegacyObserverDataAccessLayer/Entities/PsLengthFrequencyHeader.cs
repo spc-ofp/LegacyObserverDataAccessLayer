@@ -63,6 +63,17 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual int? TotalPages { get; set; }
 
+        // New fields (v2009?)
+        public virtual decimal? SumOfBrailsForPage { get; set; }
+
+        public virtual int? TotalBrailsForPage { get; set; }
+
+        public virtual int? NumberOfFishSampled { get; set; }
+
+        public virtual string BrailStart { get; set; }
+
+        public virtual string BrailEnd { get; set; }
+
         public virtual string EnteredBy { get; set; }
 
         public virtual DateTime? EnteredDate { get; set; }

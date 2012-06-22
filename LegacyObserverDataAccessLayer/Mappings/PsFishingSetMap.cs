@@ -20,7 +20,9 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Table("s_alog");
             Id(x => x.Id, "s_alog_id").GeneratedBy.Assigned();
             Map(x => x.SetNumber, "setno");
-            Map(x => x.DateOnly).Formula("date(actdate)");
+            //Map(x => x.DateOnly).Formula("date(actdate)");
+            //In Postgres, use date_trunc to force to day only
+            Map(x => x.DateOnly).Formula("date_trunc('day',actdate)");
             Map(x => x.TimeOnly, "acttime");
             Map(x => x.ld_onboard);
             Map(x => x.ld_ves_onb);
@@ -44,10 +46,16 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.SkipjackPercentage, "perc_skj");
             Map(x => x.YellowfinPercentage, "perc_yft");
             Map(x => x.BigeyePercentage, "perc_bet");
+            Map(x => x.LargeBigeyePercentage, "perc_larg_bet");
+            Map(x => x.LargeBigeyeCount, "nb_larg_bet");
+            Map(x => x.LargeYellowfinPercentage, "perc_larg_yft");
+            Map(x => x.LargeYellowfinCount, "nb_larg_yft");
+
             Map(x => x.RecoveredTagCount, "b_nbtags");
 
             Map(x => x.EnteredBy, "enteredby");
-            Map(x => x.EnteredDate).Formula("datetime(inserttime)");
+            Map(x => x.EnteredDate, "inserttime");
+            //Map(x => x.EnteredDate).Formula("datetime(inserttime)");
 
             HasMany(x => x.SetCatchList).KeyColumn("s_alog_id");
             HasMany(x => x.LengthFrequencyHeaders).KeyColumn("s_alog_id");

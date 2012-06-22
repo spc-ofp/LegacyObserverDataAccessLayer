@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TestTrip.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="TestTrip.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -27,20 +27,29 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripsById()
-        {
-            int[] tripIds = { 4391, 4393, 4394 };
-            foreach (var tripId in tripIds)
-            {
-                var trip = repo.FindBy(tripId);
-                Assert.NotNull(trip);
-            }
+        public void GetTripsById([Values(4391, 4393, 4394)] int tripId)
+        {            
+            var trip = repo.FindBy(tripId);
+            string msg = String.Format("obstrip_id: {0}", tripId);
+            Assert.NotNull(trip, msg);           
         }
 
+        /*
         [Test]
-        public void GetTripById()
+        [Ignore("Test was written to determine why some trips were coming back as null")]
+        public void GetTripWithInvalidPort()
         {
-            var trip = repo.FindBy(10) as PurseSeineTrip;
+            var tripId = 487;
+            string msg = String.Format("obstrip_id: {0}", tripId);
+            var trip = repo.FindBy(tripId);
+            Assert.Null(trip, msg);
+        }
+        */
+
+        [Test]
+        public void GetTripById([Values(10)] int tripId)
+        {
+            var trip = repo.FindBy(tripId) as PurseSeineTrip;
             Assert.NotNull(trip);
             Assert.NotNull(trip.Observer);
             Assert.NotNull(trip.DeparturePort);
@@ -96,9 +105,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithWellRecon()
+        public void GetTripWithWellRecon([Values(8381)] int tripId)
         {
-            var trip = repo.FindBy(8381) as PurseSeineTrip;
+            var trip = repo.FindBy(tripId) as PurseSeineTrip;
             Assert.NotNull(trip);
             Assert.NotNull(trip.WellReconciliations);
             foreach (var recon in trip.WellReconciliations)
@@ -109,9 +118,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithCrew()
+        public void GetTripWithCrew([Values(8381)] int tripId)
         {
-            var trip = repo.FindBy(8381) as PurseSeineTrip;
+            var trip = repo.FindBy(tripId) as PurseSeineTrip;
             Assert.NotNull(trip);
             Assert.NotNull(trip.Crew);
             foreach (var crewmember in trip.Crew)
@@ -123,9 +132,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithWellContent()
+        public void GetTripWithWellContent([Values(8599)] int tripId)
         {
-            var trip = repo.FindBy(8599) as PurseSeineTrip;
+            var trip = repo.FindBy(tripId) as PurseSeineTrip;
             Assert.NotNull(trip);
             Assert.NotNull(trip.WellContents);
             foreach (var content in trip.WellContents)
@@ -137,18 +146,18 @@ namespace Spc.Ofp.Legacy.Observer.Tests
 
 
         [Test]
-        public void GetTripWithGen3()
+        public void GetTripWithGen3([Values(8788)] int tripId)
         {
-            var trip = repo.FindBy(8788);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.Gen3);
             Assert.AreEqual(trip.Id, trip.Gen3.Trip.Id);
         }
 
         [Test]
-        public void GetTripWithElectronics()
+        public void GetTripWithElectronics([Values(1608)] int tripId)
         {
-            var trip = repo.FindBy(1608);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.ElectronicDevices);
             var jrcDevices =
@@ -171,9 +180,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithSightings()
+        public void GetTripWithSightings([Values(8381)] int tripId)
         {
-            var trip = repo.FindBy(8381);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.Sightings);
             Assert.True(trip.Sightings.Count > 5);
@@ -192,9 +201,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithTransfers()
+        public void GetTripWithTransfers([Values(8348)] int tripId)
         {
-            var trip = repo.FindBy(8348);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.Transfers);
             Assert.True(trip.Transfers.Count > 10);
@@ -207,9 +216,9 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithPollutionEvents()
+        public void GetTripWithPollutionEvents([Values(8824)] int tripId)
         {
-            var trip = repo.FindBy(8824);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.PollutionEvents);
             Assert.True(trip.PollutionEvents.Count > 2);
@@ -228,14 +237,14 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetTripWithInspection()
+        public void GetTripWithInspection([Values(15792)] int tripId)
         {
-            var trip = repo.FindBy(7181);
+            var trip = repo.FindBy(tripId);
             Assert.NotNull(trip);
             Assert.NotNull(trip.Inspection);
-            Assert.AreEqual(2, trip.Inspection.LifejacketProvided);
-            Assert.AreEqual(2, trip.Inspection.LifejacketsAvailable);
-            Assert.AreEqual(2, trip.Inspection.BuoyCount);
+            Assert.AreEqual(1, trip.Inspection.LifejacketProvided);
+            Assert.AreEqual(3, trip.Inspection.LifejacketsAvailable);
+            Assert.AreEqual(4, trip.Inspection.BuoyCount);
             Assert.AreEqual("406", trip.Inspection.Epi1Type.Trim());
             Assert.True(trip.Inspection.ExpiryOfLiferaft1.HasValue);
         }

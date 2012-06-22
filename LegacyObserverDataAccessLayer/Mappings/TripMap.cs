@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TripMap.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="TripMap.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -52,8 +52,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.VerifiedDate, "verified");
 
             References(x => x.Observer).Column("obsv_id").Not.LazyLoad();
-            References(x => x.DeparturePort).Column("dep_id").Not.LazyLoad();
-            References(x => x.ReturnPort).Column("ret_id").Not.LazyLoad();
+            References(x => x.DeparturePort).Column("dep_id").Not.LazyLoad().Nullable();
+            References(x => x.ReturnPort).Column("ret_id").Not.LazyLoad().Nullable();
             References(x => x.Vessel).Column("boat_id").Not.LazyLoad();
 
             HasOne(x => x.Gen3).PropertyRef(r => r.Trip).Cascade.All();
@@ -88,6 +88,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
         public LongLineTripMap()
         {
             DiscriminatorValue("L");
+
+            HasOne(x => x.FishingGear).PropertyRef(r => r.Trip).Cascade.All();
         }
     }
 }

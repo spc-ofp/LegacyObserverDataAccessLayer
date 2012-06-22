@@ -18,7 +18,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
         {
             ReadOnly();
             Table("special_species");
-            Id(x => x.Id, "id").GeneratedBy.Native();
+            Id(x => x.Id, "ssp_id").GeneratedBy.Native();
             Map(x => x.Landed, "landed");
             Map(x => x.LandedDateOnly, "date_land");
             Map(x => x.LandedTimeOnly, "time_land");

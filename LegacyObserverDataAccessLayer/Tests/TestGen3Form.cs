@@ -26,18 +26,18 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetGen3ByTripId()
+        public void GetGen3ByTripId([Values(8799)] int tripId)
         {
-            var gen3 = repo.FilterBy(f => f.Trip.Id == 8799).FirstOrDefault();
+            var gen3 = repo.FilterBy(f => f.Trip.Id == tripId).FirstOrDefault();
             Assert.NotNull(gen3);
             Assert.NotNull(gen3.Trip);
-            Assert.AreEqual(8799, gen3.Trip.Id);
+            Assert.AreEqual(tripId, gen3.Trip.Id);
         }
 
         [Test]
-        public void GetGen3ById()
+        public void GetGen3ById([Values(60)] int id)
         {
-            var gen3 = repo.FindBy(60);
+            var gen3 = repo.FindBy(id);
             Assert.NotNull(gen3);
             Assert.NotNull(gen3.Trip);
             Assert.AreEqual(8782, gen3.Trip.Id);

@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Gen3FormMap.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="Gen3FormMap.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -19,6 +19,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             ReadOnly();
             Table("gen3");
             Id(x => x.Id, "gen3_id").GeneratedBy.Assigned();
+            // SQLite version
+            /*
             Map(x => x.Question1).Formula("case when q1 = 't' then 1 else 0 end");
             Map(x => x.Question2).Formula("case when q2 = 't' then 1 else 0 end");
             Map(x => x.Question3).Formula("case when q3 = 't' then 1 else 0 end");
@@ -39,6 +41,28 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.Question18).Formula("case when q18 = 't' then 1 else 0 end");
             Map(x => x.Question19).Formula("case when q19 = 't' then 1 else 0 end");
             Map(x => x.Question20).Formula("case when q20 = 't' then 1 else 0 end");
+            */
+            // Postgresql version
+            Map(x => x.Question1, "q1");
+            Map(x => x.Question2, "q2");
+            Map(x => x.Question3, "q3");
+            Map(x => x.Question4, "q4");
+            Map(x => x.Question5, "q5");
+            Map(x => x.Question6, "q6");
+            Map(x => x.Question7, "q7");
+            Map(x => x.Question8, "q8");
+            Map(x => x.Question9, "q9");
+            Map(x => x.Question10, "q10");
+            Map(x => x.Question11, "q11");
+            Map(x => x.Question12, "q12");
+            Map(x => x.Question13, "q13");
+            Map(x => x.Question14, "q14");
+            Map(x => x.Question15, "q15");
+            Map(x => x.Question16, "q16");
+            Map(x => x.Question17, "q17");
+            Map(x => x.Question18, "q18");
+            Map(x => x.Question19, "q19");
+            Map(x => x.Question20, "q20");
             Map(x => x.Date1);
             Map(x => x.Comment1);
             Map(x => x.Date2);

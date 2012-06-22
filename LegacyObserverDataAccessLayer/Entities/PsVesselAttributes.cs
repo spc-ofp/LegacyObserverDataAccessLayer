@@ -28,5 +28,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual string HelicopterRangeUnits { get; set; }
         public virtual string HelicopterColor { get; set; }
         public virtual int? HelicopterServiceCount { get; set; }
+        public virtual bool? HasWasteDisposal { get; set; }
+        public virtual string WasteDisposalDescription { get; set; }
     }
 }

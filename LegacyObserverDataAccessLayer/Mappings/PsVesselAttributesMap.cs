@@ -33,6 +33,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.HelicopterRangeUnits, "heli_range_unt");
             Map(x => x.HelicopterColor, "heli_colr");
             Map(x => x.HelicopterServiceCount, "heli_nbvess");
+            Map(x => x.HasWasteDisposal, "waste_disp");
+            Map(x => x.WasteDisposalDescription, "waste_dis2");
 
             References(x => x.Trip).Column("obstrip_id");
         }

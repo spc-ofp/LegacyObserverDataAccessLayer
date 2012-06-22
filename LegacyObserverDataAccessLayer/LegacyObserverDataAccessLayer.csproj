@@ -32,34 +32,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\packages\FluentNHibernate.1.3.0.717\lib\FluentNHibernate.dll</HintPath>
+    <Reference Include="FluentNHibernate, Version=1.3.0.727, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.727\lib\FluentNHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections">
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Mono.Security.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    <Reference Include="NHibernate, Version=3.3.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.0.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.mocks, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Npgsql.dll</HintPath>
     </Reference>
-    <Reference Include="pnunit.framework">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Spc.Ofp.Common.Repo">
       <HintPath>externals\Spc.Ofp.Common.Repo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\packages\System.Data.SQLite.1.0.79.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.81.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.81.0\lib\net40\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
-      <HintPath>..\packages\System.Data.SQLite.1.0.79.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.81.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.81.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,6 +75,11 @@
     <Compile Include="Common\WellContentType.cs" />
     <Compile Include="DataService.cs" />
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="Entities\LonglineCatch.cs" />
+    <Compile Include="Entities\LonglineConversionFactor.cs" />
+    <Compile Include="Entities\LonglineFishingGear.cs" />
+    <Compile Include="Entities\LonglineFishingSet.cs" />
+    <Compile Include="Entities\LonglineSetHaulEvent.cs" />
     <Compile Include="Entities\MarineDevice.cs" />
     <Compile Include="Entities\PsCrewMember.cs" />
     <Compile Include="Entities\Electronics.cs" />
@@ -100,6 +108,11 @@
     <Compile Include="Entities\TripHeader.cs" />
     <Compile Include="Entities\Vessel.cs" />
     <Compile Include="Entities\WasteDetail.cs" />
+    <Compile Include="Mappings\LonglineCatchMap.cs" />
+    <Compile Include="Mappings\LonglineConversionFactorMap.cs" />
+    <Compile Include="Mappings\LonglineFishingGearMap.cs" />
+    <Compile Include="Mappings\LonglineFishingSetMap.cs" />
+    <Compile Include="Mappings\LonglineSetHaulEventMap.cs" />
     <Compile Include="Mappings\MarineDeviceMap.cs" />
     <Compile Include="Mappings\PsCrewMemberMap.cs" />
     <Compile Include="Mappings\ElectronicsMap.cs" />
@@ -130,7 +143,9 @@
     <Compile Include="Tests\TestDateTimeExtensions.cs" />
     <Compile Include="Tests\TestElectronics.cs" />
     <Compile Include="Tests\TestFieldStaff.cs" />
+    <Compile Include="Tests\TestFishTransfer.cs" />
     <Compile Include="Tests\TestGen3Form.cs" />
+    <Compile Include="Tests\TestPollutionEvent.cs" />
     <Compile Include="Tests\TestPort.cs" />
     <Compile Include="Tests\TestSetCatch.cs" />
     <Compile Include="Tests\TestSsInteraction.cs" />
@@ -138,6 +153,7 @@
     <Compile Include="Tests\TestTripHeader.cs" />
     <Compile Include="Tests\TestVesselAttributes.cs" />
     <Compile Include="TrueFalseType.cs" />
+    <Compile Include="YesNoType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

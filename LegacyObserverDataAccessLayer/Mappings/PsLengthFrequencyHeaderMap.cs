@@ -41,7 +41,13 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.PageNumber, "nbformused"); // Page X...
             Map(x => x.TotalPages, "totused"); // ...of Y
             Map(x => x.EnteredBy, "enteredby");
-            Map(x => x.EnteredDate).Formula("datetime(inserttime)");  //, "inserttime");
+            Map(x => x.EnteredDate, "inserttime");
+            // v2009 fields
+            Map(x => x.SumOfBrailsForPage, "sbrail_page");
+            Map(x => x.TotalBrailsForPage, "tbrail_page");
+            Map(x => x.NumberOfFishSampled, "nfish");
+            Map(x => x.BrailStart, "brail_start");
+            Map(x => x.BrailEnd, "brail_end");
 
             HasMany(x => x.Details).KeyColumn("s_lfreq_id");
         }

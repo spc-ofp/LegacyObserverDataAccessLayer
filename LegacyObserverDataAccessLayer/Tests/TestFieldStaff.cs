@@ -31,12 +31,12 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetByStaffCode()
+        public void GetByStaffCode([Values("DJB")] string staffCode)
         {
             var repo = new Repository<FieldStaff>(DataService.GetSession());
-            var person = repo.FindBy("DJB");
+            var person = repo.FindBy(staffCode);
             Assert.NotNull(person);
-            Assert.AreEqual("DJB", person.StaffCode);
+            StringAssert.AreEqualIgnoringCase(staffCode, person.StaffCode);
             Assert.AreEqual("DAVE J", person.FirstName);
             Assert.IsTrue("Dave J".Equals(person.FirstName.Trim(), StringComparison.CurrentCultureIgnoreCase));
         }

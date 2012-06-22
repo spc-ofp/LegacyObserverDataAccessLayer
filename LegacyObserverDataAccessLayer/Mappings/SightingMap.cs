@@ -18,7 +18,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
         {
             ReadOnly();
             Table("aircraftsight");
-            Id(x => x.Id, "id").GeneratedBy.Native();
+            Id(x => x.Id, "air_id").GeneratedBy.Native();
             Map(x => x.DateOnly, "date");
             Map(x => x.TimeOnly, "time");
             Map(x => x.Latitude, "lat");

@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PsDailyEventMap.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="PsDailyEventMap.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -19,9 +19,11 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             ReadOnly();
             Table("s_alog");
             Id(x => x.Id, "s_alog_id").GeneratedBy.Identity();
-            Map(x => x.DateOnly).Formula("date(actdate)");
+            //Map(x => x.DateOnly).Formula("date(actdate)");
+            //In Postgres, use date_trunc to force to day only
+            Map(x => x.DateOnly).Formula("date_trunc('day',actdate)");
             Map(x => x.TimeOnly, "acttime");
-            Map(x => x.UtcDateOnly).Formula("date(utc_adate)");
+            Map(x => x.UtcDateOnly).Formula("date_trunc('day',utc_adate)");
             Map(x => x.UtcTimeOnly, "utc_atime");
             Map(x => x.Latitude, "lat_long");
             Map(x => x.Longitude, "lon_long");
@@ -37,7 +39,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.Comments, "comment");
             
             Map(x => x.EnteredBy, "enteredby");
-            Map(x => x.EnteredDate).Formula("datetime(inserttime)");
+            //Map(x => x.EnteredDate).Formula("datetime(inserttime)");
+            Map(x => x.EnteredDate, "inserttime");
 
             References(x => x.Day).Column("s_day_id");
             HasOne(x => x.FishingSet).PropertyRef(r => r.DailyEvent).Cascade.All();
