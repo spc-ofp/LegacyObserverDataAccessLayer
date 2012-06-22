@@ -36,13 +36,20 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string TargetSpeciesCode { get; set; }
 
+        public virtual int? TargetSpeciesId { get; set; } // 1 = Tuna, 2 = Swordfish, 3 = Shark
+
+        // Number of hooks between floats.  0 for no information, otherwise between 1 and 60
         public virtual int? HooksPerBasket { get; set; }
 
         public virtual int? TotalBasketCount { get; set; }
 
         public virtual int? TotalHookCount { get; set; }
 
+        public virtual int? EstimatedHookCount { get; set; }
+
         public virtual int? FloatlineLength { get; set; }
+
+        public virtual int? FloatlineHookCount { get; set; }
 
         public virtual decimal? LineSettingSpeed { get; set; }
 
@@ -96,6 +103,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual string BaitSpecies5Hooks { get; set; }
 
         public virtual string SetDetails { get; set; }
+
+        public virtual string Strategy { get; set; }
 
         public virtual IList<LonglineCatch> CatchList { get; protected internal set; }
 

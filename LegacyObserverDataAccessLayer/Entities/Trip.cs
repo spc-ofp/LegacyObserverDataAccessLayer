@@ -20,8 +20,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
             Sightings = new List<Sighting>(8);
             Transfers = new List<FishTransfer>(8);
             PollutionEvents = new List<PollutionHeader>(8);
-            Interactions = new List<SsInteraction>(8);
-            
+            Interactions = new List<SsInteraction>(8);           
         }
 
         public virtual int Id { get; protected set; }
@@ -36,6 +35,12 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string TripNumber { get; set; }
 
+        // s_obsv_id
+        //public virtual FieldStaff CompanionObserver { get; set; }
+
+        // s_tripno
+        //public virtual string CompanionTripNumber { get; set; }
+
         public virtual string FormVersion { get; set; }
 
         public virtual DateTime? DepartureDate { get; set; }
@@ -43,6 +48,10 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual DateTime? ReturnDate { get; set; }
 
         public virtual Vessel Vessel { get; set; }
+
+        public virtual string VesselName { get; set; }
+
+        public virtual string VesselRegistrationNumber { get; set; }
 
         public virtual string FlagCode { get; set; }
 
@@ -60,7 +69,6 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string Comments { get; set; }
 
-        // Start here
         public virtual string CkTripNumber { get; set; }
 
         public virtual string FmTripNumber { get; set; }
@@ -71,14 +79,53 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string HwTripNumber { get; set; }
 
+        public virtual bool? IsSharkIdentifiedToSpeciesLevel { get; set; }
+
         public virtual bool? IsSharkTarget { get; set; }
 
+        // Did the observer trip coincide with the start and end of the vessel trip
         public virtual bool? IsFullTrip { get; set; }
 
         public virtual string ProjectCode { get; set; }
 
         public virtual bool? IsCadetTrip { get; set; }
-        // End here
+
+        // ROP Trip:  Vessel fishing outside it's flag EEZ
+        public virtual bool? IsRopTrip { get; set; }
+
+        public virtual bool? IncludeInWcpfcData { get; set; }
+
+        public virtual int? RecordedSetCount { get; set; }
+
+        public virtual int? LogsheetTripId { get; set; }
+
+        public virtual int? EstimatedLogsheetTripId { get; set; }
+
+        public virtual bool? HasLogsheetData { get; set; }
+
+        public virtual bool? HasHardCopy { get; set; }
+
+        public virtual DateTime? ReceivedDate { get; set; }
+
+        public virtual bool? IsJournalAvailable { get; set; }
+
+        public virtual DateTime? AcknowledgedDate { get; set; }
+
+        public virtual string CrewNationality1 { get; set; }
+
+        public virtual string CrewNationality2 { get; set; }
+
+        public virtual string CrewNationality3 { get; set; }
+
+        public virtual string CrewNationality4 { get; set; }
+
+        public virtual int? CrewNationalityCount1 { get; set; }
+
+        public virtual int? CrewNationalityCount2 { get; set; }
+
+        public virtual int? CrewNationalityCount3 { get; set; }
+
+        public virtual int? CrewNationalityCount4 { get; set; }
 
         public virtual Port DeparturePort { get; set; }
 
@@ -96,9 +143,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual IList<PollutionHeader> PollutionEvents { get; protected internal set; }
 
-        public virtual IList<SsInteraction> Interactions { get; protected internal set; }
-
-        
+        public virtual IList<SsInteraction> Interactions { get; protected internal set; }       
 
         public virtual string EnteredBy { get; set; }
 

@@ -31,10 +31,10 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.LengthCode, "len_id");
             Map(x => x.Weight, "wt");
             Map(x => x.EstimatedWeight, "wt_est");
-            Map(x => x.EstimatedReleaseWeight, "wt_est_rel");
+            Map(x => x.EstimatedWeightReliability, "wt_est_rel");
             Map(x => x.WeightCode, "wt_id");
             Map(x => x.SexCode, "sex_id");
-            Map(x => x.Gonad, "gonad");
+            Map(x => x.GonadStage, "gonad");
             Map(x => x.Comments, "\"comments\"");
 
             References(x => x.FishingSet).Column("l_shaul_id");

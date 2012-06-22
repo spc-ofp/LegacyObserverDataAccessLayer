@@ -26,6 +26,8 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.FormVersion, "form_vers");
             Map(x => x.DepartureDate, "o_dep_date");
             Map(x => x.ReturnDate, "o_ret_date");
+            Map(x => x.VesselName, "vesselname");
+            Map(x => x.VesselRegistrationNumber, "regist_no");
             Map(x => x.FlagCode, "flag_id");
             Map(x => x.FleetCode, "fleet_id");
             Map(x => x.GrossTonnage, "grt");
@@ -40,10 +42,30 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.FfaTripNumber, "ffatripno");
             Map(x => x.SbTripNumber, "sbtripno");
             Map(x => x.HwTripNumber, "hwtripno");
+            Map(x => x.IsSharkIdentifiedToSpeciesLevel, "shark");
             Map(x => x.IsSharkTarget, "sharktarget");
             Map(x => x.IsFullTrip, "fulltrip");
             Map(x => x.ProjectCode, "project_code");
             Map(x => x.IsCadetTrip, "cadet");
+            Map(x => x.IsRopTrip, "rop_trip").CustomType<YesNoType>();
+            Map(x => x.IncludeInWcpfcData, "wcpfc_data").CustomType<YesNoType>();
+            Map(x => x.RecordedSetCount, "nsets");
+            Map(x => x.LogsheetTripId, "trip_id");
+            Map(x => x.EstimatedLogsheetTripId, "tripest_id");
+            Map(x => x.HasLogsheetData, "logsheet").CustomType<YesNoType>();
+            Map(x => x.HasHardCopy, "hard_data").CustomType<YesNoType>();
+            Map(x => x.ReceivedDate, "recvd_date");
+            Map(x => x.AcknowledgedDate, "ackdate");
+            Map(x => x.IsJournalAvailable, "report").CustomType<YesNoType>();
+
+            Map(x => x.CrewNationality1, "crew_co1");
+            Map(x => x.CrewNationalityCount1, "crew_no1");
+            Map(x => x.CrewNationality2, "crew_co2");
+            Map(x => x.CrewNationalityCount2, "crew_no2");
+            Map(x => x.CrewNationality3, "crew_co3");
+            Map(x => x.CrewNationalityCount3, "crew_no3");
+            Map(x => x.CrewNationality4, "crew_co4");
+            Map(x => x.CrewNationalityCount4, "crew_no4");
 
             Map(x => x.EnteredBy, "entered_by");
             Map(x => x.EnteredDate, "entered");

@@ -20,16 +20,19 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             ReadOnly();
             Table("l_sethaul");
             Id(x => x.Id, "l_shaul_id").GeneratedBy.Assigned();
-            Map(x => x.SetNumber, "set_id");
+            Map(x => x.SetNumber, "set_id"); // Link to longline logsheet set record (l_set)
             Map(x => x.DateOnly, "setdate");
             Map(x => x.TimeOnly, "settime");
             Map(x => x.UtcDateOnly, "utc_sdate");
             Map(x => x.UtcTimeOnly, "utc_stime");
             Map(x => x.TargetSpeciesCode, "tar_sp_id").Length(3);
+            Map(x => x.TargetSpeciesId, "target_sp_id");
             Map(x => x.HooksPerBasket, "hk_bt_flt");
             Map(x => x.TotalBasketCount, "bask");
             Map(x => x.TotalHookCount, "hook_set");
+            Map(x => x.EstimatedHookCount, "hook_est");
             Map(x => x.FloatlineLength, "\"float\"");
+            Map(x => x.FloatlineHookCount, "floathook");
             Map(x => x.LineSettingSpeed, "lspeed");
             Map(x => x.LineSettingSpeedUnit, "linesp_unit");
             Map(x => x.VesselSpeed, "vspeed");
@@ -67,6 +70,18 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.BaitSpecies5Hooks, "bait5_h");
 
             Map(x => x.SetDetails, "setdetails");
+            Map(x => x.Strategy, "strategy");
+
+            /*
+             * hook_calc -- Used when total hooks hauled are not observed
+             * depth_l -- estimated depth of shallowest hook
+             * depth_h -- estimated depth of deepest hook
+             * br_0_20 -- Number of branchlines between successive floats that are < 20m
+             * br_20_34 -- Number of branchlines between successive floats that are 20-35m
+             * br_35_50 -- Number of branchlines between successive floats that are 35-50m
+             * br_50_99 -- Number of branchlines between successive floats that are > 50m
+             * no_obsv -- Indicates if data recorded with this observed set.  Primarily for AFMA data.
+             */
 
             HasMany(x => x.CatchList).KeyColumn("l_shaul_id");
             HasMany(x => x.EventList).KeyColumn("l_shaul_id");

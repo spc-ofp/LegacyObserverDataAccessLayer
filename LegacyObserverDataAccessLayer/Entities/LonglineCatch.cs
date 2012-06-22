@@ -32,7 +32,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string ConditionCode { get; set; }
 
-        public virtual string DiscardedConditionCode { get; set; } // TODO ???
+        public virtual string DiscardedConditionCode { get; set; }
 
         public virtual string FateCode { get; set; }
 
@@ -44,13 +44,13 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual int? EstimatedWeight { get; set; }
 
-        public virtual int? EstimatedReleaseWeight { get; set; } // TODO ???
+        public virtual int? EstimatedWeightReliability { get; set; }
 
         public virtual string WeightCode { get; set; }
 
         public virtual string SexCode { get; set; }
 
-        public virtual string Gonad { get; set; } // TODO ???
+        public virtual string GonadStage { get; set; }
 
         public virtual string Comments { get; set; }
 
