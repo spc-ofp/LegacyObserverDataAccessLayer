@@ -38,7 +38,6 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.Comments, "\"comments\"");
 
             References(x => x.FishingSet).Column("l_shaul_id");
-            References(x => x.Trip).Column("obstrip_id");
         }
     }
 }

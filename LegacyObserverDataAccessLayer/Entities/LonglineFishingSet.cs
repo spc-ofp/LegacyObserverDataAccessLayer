@@ -22,6 +22,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         }
         
         public virtual int Id { get; protected set; }
+
         public virtual Trip Trip { get; set; }
 
         public virtual int? SetNumber { get; set; }
@@ -115,21 +116,18 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual void AddCatch(LonglineCatch lcatch)
         {
             lcatch.FishingSet = this;
-            lcatch.Trip = this.Trip; // ???
             CatchList.Add(lcatch);
         }
 
         public virtual void AddEvent(LonglineSetHaulEvent levent)
         {
             levent.FishingSet = this;
-            levent.Trip = this.Trip; // ???
             EventList.Add(levent);
         }
 
         public virtual void AddConversionFactor(LonglineConversionFactor cfactor)
         {
             cfactor.FishingSet = this;
-            cfactor.Trip = this.Trip;
             ConversionFactors.Add(cfactor);
         }
     }

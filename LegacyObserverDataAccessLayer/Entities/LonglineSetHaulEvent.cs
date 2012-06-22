@@ -15,7 +15,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
     public class LonglineSetHaulEvent
     {
         public virtual int Id { get; protected set; }
-        public virtual Trip Trip { get; set; }
+
         public virtual LonglineFishingSet FishingSet { get; set; }
 
         public virtual int? EventNumber { get; set; }

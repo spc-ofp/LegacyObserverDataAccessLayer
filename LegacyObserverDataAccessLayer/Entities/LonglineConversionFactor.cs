@@ -14,7 +14,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
     public class LonglineConversionFactor
     {
         public virtual int Id { get; protected set; }
-        public virtual Trip Trip { get; set; }
+
         public virtual LonglineFishingSet FishingSet { get; set; }
 
         public virtual DateTime? DateOnly { get; set; }
