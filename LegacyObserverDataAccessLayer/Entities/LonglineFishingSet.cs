@@ -8,6 +8,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 {
     using System;
     using System.Collections.Generic;
+    using Spc.Ofp.Legacy.Observer.ExtensionMethods;
 
     /// <summary>
     /// TODO: Update summary.
@@ -101,11 +102,14 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string BaitSpecies5Code { get; set; }
         public virtual int? BaitSpecies5Weight { get; set; }
-        public virtual string BaitSpecies5Hooks { get; set; }
 
         public virtual string SetDetails { get; set; }
 
         public virtual string Strategy { get; set; }
+
+        public virtual string EnteredBy { get; set; }
+
+        public virtual DateTime? EnteredDate { get; set; }
 
         public virtual IList<LonglineCatch> CatchList { get; protected internal set; }
 
@@ -129,6 +133,16 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         {
             cfactor.FishingSet = this;
             ConversionFactors.Add(cfactor);
+        }
+
+        public virtual DateTime? GetDate()
+        {
+            return this.DateOnly.Combine(this.TimeOnly);
+        }
+
+        public virtual DateTime? GetUtcDate()
+        {
+            return this.UtcDateOnly.Combine(this.UtcTimeOnly);
         }
     }
 }

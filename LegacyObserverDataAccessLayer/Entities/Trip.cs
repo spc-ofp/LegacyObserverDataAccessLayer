@@ -90,6 +90,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual bool? IsCadetTrip { get; set; }
 
+        public virtual bool? IsSpillTrip { get; set; }
+
         // ROP Trip:  Vessel fishing outside it's flag EEZ
         public virtual bool? IsRopTrip { get; set; }
 

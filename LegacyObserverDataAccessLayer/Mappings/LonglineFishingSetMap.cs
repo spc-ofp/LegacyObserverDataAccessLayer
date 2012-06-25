@@ -67,10 +67,12 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
 
             Map(x => x.BaitSpecies5Code, "bait5_sp_id");
             Map(x => x.BaitSpecies5Weight, "bait5_w");
-            Map(x => x.BaitSpecies5Hooks, "bait5_h");
 
             Map(x => x.SetDetails, "setdetails");
             Map(x => x.Strategy, "strategy");
+
+            Map(x => x.EnteredBy, "enteredby");
+            Map(x => x.EnteredDate, "inserttime");
 
             /*
              * hook_calc -- Used when total hooks hauled are not observed

@@ -145,6 +145,8 @@
     <Compile Include="Tests\TestFieldStaff.cs" />
     <Compile Include="Tests\TestFishTransfer.cs" />
     <Compile Include="Tests\TestGen3Form.cs" />
+    <Compile Include="Tests\TestLonglineCatch.cs" />
+    <Compile Include="Tests\TestLonglineSetHaulEvents.cs" />
     <Compile Include="Tests\TestPollutionEvent.cs" />
     <Compile Include="Tests\TestPort.cs" />
     <Compile Include="Tests\TestSetCatch.cs" />

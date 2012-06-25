@@ -248,5 +248,70 @@ namespace Spc.Ofp.Legacy.Observer.Tests
             Assert.AreEqual("406", trip.Inspection.Epi1Type.Trim());
             Assert.True(trip.Inspection.ExpiryOfLiferaft1.HasValue);
         }
+
+        // obstrip_id values selected by inspection -- they're all NCOB with the same
+        // observer staff code.
+        [Test]
+        public void GetLonglineTrip([Values(15852, 15850, 15713)] int tripId)
+        {
+            var trip = repo.FindBy(tripId) as LongLineTrip;
+            Assert.NotNull(trip);
+            // Check common attributes, including attributes that are boolean in the
+            // source database and some that are boolean stored as char(1)
+            StringAssert.AreEqualIgnoringCase("NCOB", trip.ProgramId);
+            Assert.NotNull(trip.Vessel);
+            Assert.True(trip.DepartureDate.HasValue);
+            Assert.True(trip.ReturnDate.HasValue);
+            Assert.NotNull(trip.Observer);
+            StringAssert.AreEqualIgnoringCase("CHC", trip.Observer.StaffCode);
+            Assert.True(trip.IsSpillTrip.HasValue);
+            Assert.False(trip.IsSpillTrip.Value);
+            Assert.True(trip.IsRopTrip.HasValue && trip.IsRopTrip.Value);
+            Assert.True(trip.IncludeInWcpfcData.HasValue && !trip.IncludeInWcpfcData.Value);
+            StringAssert.AreEqualIgnoringCase("2007", trip.FormVersion);
+            StringAssert.AreEqualIgnoringCase("NC", trip.FlagCode);
+            Assert.NotNull(trip.DeparturePort);
+            StringAssert.AreEqualIgnoringCase("NOUMEA", trip.DeparturePort.Name);
+            Assert.NotNull(trip.ReturnPort);
+            StringAssert.AreEqualIgnoringCase("NOUMEA", trip.ReturnPort.Name);
+            Assert.True(trip.EnteredDate.HasValue);
+            Assert.True(trip.ClosedDate.HasValue);
+            Assert.True(trip.IsSharkTarget.HasValue && !trip.IsSharkTarget.Value);
+
+            // Check dependent objects
+            Assert.NotNull(trip.FishingGear);
+            StringAssert.AreEqualIgnoringCase("ALL", trip.FishingGear.MainlineHaulerComments); // By inspection
+            StringAssert.AreEqualIgnoringCase("ALL", trip.FishingGear.LineShooterComments); // Again, by inspection
+            Assert.True(trip.FishingGear.HasBranchlineAttacher.HasValue && !trip.FishingGear.HasBranchlineAttacher.Value); // char(1) converted to bool
+            StringAssert.AreEqualIgnoringCase("Monofilament", trip.FishingGear.MainlineMaterial);
+            Assert.True(trip.FishingGear.HasIce.HasValue && trip.FishingGear.HasIce.Value);
+            Assert.False(trip.FishingGear.JapanHookPercentage.HasValue);
+
+            Assert.NotNull(trip.FishingSets);
+            Assert.False(0 == trip.FishingSets.Count);
+            foreach (var fset in trip.FishingSets)
+            {
+                Assert.NotNull(fset);
+                Assert.True(fset.DateOnly.HasValue);
+                Assert.True(fset.UtcDateOnly.HasValue);
+                Assert.True(fset.GetDate().HasValue);
+                Assert.True(fset.GetUtcDate().HasValue);
+                Assert.True(fset.HooksPerBasket.HasValue);
+                Assert.True(fset.BranchlineLength.HasValue);
+                Assert.True((10 < fset.BranchlineLength.Value) && (fset.BranchlineLength.Value < 20));
+                Assert.False(String.IsNullOrEmpty(fset.BaitSpecies1Code));
+                Assert.False(String.IsNullOrEmpty(fset.BaitSpecies1Hooks));
+                Assert.True(fset.AllPositionsDirectlyObserved.HasValue);
+                Assert.True(fset.EnteredDate.HasValue);
+                Assert.False(String.IsNullOrEmpty(fset.EnteredBy));
+                
+                // More child collections
+                Assert.NotNull(fset.CatchList);
+                Assert.NotNull(fset.EventList);
+                Assert.NotNull(fset.ConversionFactors);
+            }
+
+
+        }
     }
 }

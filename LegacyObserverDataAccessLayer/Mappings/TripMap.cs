@@ -14,11 +14,13 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
     /// </summary>
     public class TripMap : ClassMap<Trip>
     {
+        public const string TripId = "obstrip_id";
+        
         public TripMap()
         {
             ReadOnly();
             Table("obs_trip");
-            Id(x => x.Id, "obstrip_id").GeneratedBy.Assigned();
+            Id(x => x.Id, TripId).GeneratedBy.Assigned();
             Map(x => x.RegistrationId, "regist_id");
             Map(x => x.ProgramId, "obs_prg_id");
             Map(x => x.CountryCode, "co_id");
@@ -45,6 +47,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.IsSharkIdentifiedToSpeciesLevel, "shark");
             Map(x => x.IsSharkTarget, "sharktarget");
             Map(x => x.IsFullTrip, "fulltrip");
+            Map(x => x.IsSpillTrip, "spill");
             Map(x => x.ProjectCode, "project_code");
             Map(x => x.IsCadetTrip, "cadet");
             Map(x => x.IsRopTrip, "rop_trip").CustomType<YesNoType>();
@@ -81,10 +84,10 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             HasOne(x => x.Gen3).PropertyRef(r => r.Trip).Cascade.All();
             HasOne(x => x.Inspection).PropertyRef(r => r.Trip).Cascade.All();
 
-            HasMany(x => x.ElectronicDevices).KeyColumn("obstrip_id");
-            HasMany(x => x.Sightings).KeyColumn("obstrip_id");
-            HasMany(x => x.Transfers).KeyColumn("obstrip_id");
-            HasMany(x => x.PollutionEvents).KeyColumn("obstrip_id");            
+            HasMany(x => x.ElectronicDevices).KeyColumn(TripId);
+            HasMany(x => x.Sightings).KeyColumn(TripId);
+            HasMany(x => x.Transfers).KeyColumn(TripId);
+            HasMany(x => x.PollutionEvents).KeyColumn(TripId);            
 
             DiscriminateSubClassesOnColumn<string>("gr_id");
         }
@@ -110,6 +113,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
         public LongLineTripMap()
         {
             DiscriminatorValue("L");
+            HasMany(x => x.FishingSets).KeyColumn("obstrip_id");
 
             HasOne(x => x.FishingGear).PropertyRef(r => r.Trip).Cascade.All();
         }

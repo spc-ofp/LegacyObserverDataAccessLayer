@@ -28,9 +28,26 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
-        public void GetPollutionEventsByTripId()
+        public void GetPollutionEventsByTripId([Values(16582)] int tripId)
         {
-
+            var events = repo.FilterBy(e => e.Trip.Id == tripId);
+            Assert.NotNull(events);
+            Assert.False(0 == events.Count());
+            foreach (var pevent in events)
+            {
+                Assert.NotNull(pevent);
+                Assert.True(pevent.DateOnly.HasValue);
+                Assert.False(String.IsNullOrEmpty(pevent.TimeOnly));
+                Assert.False(String.IsNullOrEmpty(pevent.Latitude));
+                Assert.False(String.IsNullOrEmpty(pevent.Longitude));
+                Assert.NotNull(pevent.Details);
+                Assert.True(1 == pevent.Details.Count);
+                var detail = pevent.Details[0];
+                Assert.NotNull(detail);
+                StringAssert.AreEqualIgnoringCase("P", detail.Material);
+                Assert.True(detail.YesNo.HasValue);
+                Assert.AreEqual(1, detail.YesNo.Value);
+            }
         }
     }
 }
