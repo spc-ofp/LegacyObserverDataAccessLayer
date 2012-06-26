@@ -28,6 +28,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.FormVersion, "form_vers");
             Map(x => x.DepartureDate, "o_dep_date");
             Map(x => x.ReturnDate, "o_ret_date");
+            Map(x => x.VesselDepartureDate, "orig_dep_d");
             Map(x => x.VesselName, "vesselname");
             Map(x => x.VesselRegistrationNumber, "regist_no");
             Map(x => x.FlagCode, "flag_id");
@@ -80,6 +81,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             References(x => x.DeparturePort).Column("dep_id").Not.LazyLoad().Nullable();
             References(x => x.ReturnPort).Column("ret_id").Not.LazyLoad().Nullable();
             References(x => x.Vessel).Column("boat_id").Not.LazyLoad();
+            References(x => x.VesselDeparturePort).Column("orig_dep_i").Nullable();
 
             HasOne(x => x.Gen3).PropertyRef(r => r.Trip).Cascade.All();
             HasOne(x => x.Inspection).PropertyRef(r => r.Trip).Cascade.All();

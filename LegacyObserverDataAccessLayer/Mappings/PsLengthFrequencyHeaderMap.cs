@@ -22,7 +22,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
 
             //Map(x => x.PagesInSet, "page_no");
             Map(x => x.TotalBrails, "tbrail");
-            //Map(x => x.NumberOfBrailsSampled, "nbrail"); // Ignore
+            Map(x => x.NumberOfBrailsSampled, "nbrail");
             Map(x => x.FishPerBrail, "fish_brl");
             Map(x => x.FullBrailCount, "brail_full");
             Map(x => x.SevenEighthsBrailCount, "brail_78");
@@ -32,8 +32,9 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.OneThirdBrailCount, "brail_13");
             Map(x => x.OneQuarterBrailCount, "brail_14");
             Map(x => x.OneEighthBrailCount, "brail_18");
-            Map(x => x.Measure, "measure");
+            Map(x => x.MeasuringInstrument, "measure");
             Map(x => x.Protocol, "protocol");
+            Map(x => x.OtherSample, "othersamp").Length(20);
             Map(x => x.SumOfBrails, "sum_brails");
             Map(x => x.ProtocolComments, "prot_comments");
             Map(x => x.SampleType, "samptype");

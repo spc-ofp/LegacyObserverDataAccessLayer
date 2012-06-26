@@ -105,6 +105,16 @@ namespace Spc.Ofp.Legacy.Observer.Tests
         }
 
         [Test]
+        public void GetTripUsingNewWorkbook([Values(16574)] int tripId)
+        {
+            var trip = repo.FindBy(tripId) as PurseSeineTrip;
+            Assert.NotNull(trip);
+            StringAssert.AreEqualIgnoringCase("2009", trip.FormVersion);
+            Assert.True(trip.VesselDepartureDate.HasValue);
+            Assert.NotNull(trip.VesselDeparturePort);
+        }
+
+        [Test]
         public void GetTripWithWellRecon([Values(8381)] int tripId)
         {
             var trip = repo.FindBy(tripId) as PurseSeineTrip;

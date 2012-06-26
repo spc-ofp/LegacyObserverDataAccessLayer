@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PsLengthFrequencyHeader.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="PsLengthFrequencyHeader.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual int? TotalBrails { get; set; }
 
-        //public virtual int? NumberOfBrailsSampled { get; set; }
+        public virtual int? NumberOfBrailsSampled { get; set; }
 
         public virtual int? FishPerBrail { get; set; }
 
@@ -47,13 +47,15 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual int? OneEighthBrailCount { get; set; }
 
-        public virtual string Measure { get; set; }
+        public virtual string MeasuringInstrument { get; set; }
 
         public virtual string Protocol { get; set; }
 
         public virtual decimal? SumOfBrails { get; set; }
 
         public virtual string ProtocolComments { get; set; }
+
+        public virtual string OtherSample { get; set; }
 
         public virtual int? SampleType { get; set; }
 

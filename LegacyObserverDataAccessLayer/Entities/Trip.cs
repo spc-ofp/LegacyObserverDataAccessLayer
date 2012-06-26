@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Trip.cs" company="">
-// TODO: Update copyright text.
+// <copyright file="Trip.cs" company="Secretariat of the Pacific Community">
+// Copyright (C) 2012 Secretariat of the Pacific Community
 // </copyright>
 // -----------------------------------------------------------------------
 
@@ -36,16 +36,18 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual string TripNumber { get; set; }
 
         // s_obsv_id
-        //public virtual FieldStaff CompanionObserver { get; set; }
+        public virtual FieldStaff CompanionObserver { get; set; }
 
         // s_tripno
-        //public virtual string CompanionTripNumber { get; set; }
+        public virtual string CompanionTripNumber { get; set; }
 
         public virtual string FormVersion { get; set; }
 
         public virtual DateTime? DepartureDate { get; set; }
 
         public virtual DateTime? ReturnDate { get; set; }
+
+        public virtual DateTime? VesselDepartureDate { get; set; }
 
         public virtual Vessel Vessel { get; set; }
 
@@ -132,6 +134,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual Port DeparturePort { get; set; }
 
         public virtual Port ReturnPort { get; set; }
+
+        public virtual Port VesselDeparturePort { get; set; }
 
         public virtual Gen3Form Gen3 { get; set; }
 
