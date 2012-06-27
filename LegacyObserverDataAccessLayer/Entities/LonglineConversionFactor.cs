@@ -24,5 +24,43 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual string SpeciesCode { get; set; }
 
         public virtual string LabelNumber { get; set; }
+
+        public virtual int? TtLength { get; set; }
+
+        public virtual int? UfLength { get; set; }
+
+        public virtual int? UsLength { get; set; }
+
+        public virtual int? LfLength { get; set; }
+
+        public virtual int? PfLength { get; set; }
+
+        public virtual int? PsLength { get; set; }
+
+        public virtual int? SlLength { get; set; }
+
+        public virtual int? EoLength { get; set; }
+
+        public virtual int? CkLength { get; set; }
+
+        public virtual int? TlLength { get; set; }
+
+        public virtual int? CuLength { get; set; }
+
+        public virtual decimal? WwWeight { get; set; }
+
+        public virtual decimal? HeadWeight { get; set; }
+
+        public virtual decimal? TailWeight { get; set; }
+
+        public virtual decimal? GutsWeight { get; set; }
+
+        public virtual decimal ProcessedWeight { get; set; }
+
+        public virtual string ProcessedWeightCode { get; set; }
+
+        public virtual decimal? LandedWeight { get; set; }
+
+        public virtual string LandedWeightCode { get; set; }
     }
 }

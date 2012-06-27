@@ -75,6 +75,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.EnteredDate, "inserttime");
 
             /*
+             * This all looks to be legacy data.
              * hook_calc -- Used when total hooks hauled are not observed
              * depth_l -- estimated depth of shallowest hook
              * depth_h -- estimated depth of deepest hook
@@ -84,6 +85,16 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
              * br_50_99 -- Number of branchlines between successive floats that are > 50m
              * no_obsv -- Indicates if data recorded with this observed set.  Primarily for AFMA data.
              */
+            Map(x => x.HookCalc, "hook_calc");
+            Map(x => x.HookDepthLow, "depth_l");
+            Map(x => x.HookDepthHigh, "depth_h");
+            Map(x => x.BranchlineCount_00to20m, "br_0_20");
+            Map(x => x.BranchlineCount_20to34m, "br_20_34");
+            Map(x => x.BranchlineCount_35to50m, "br_35_50");
+            Map(x => x.BranchlineCount_50to99m, "br_50_99");
+            Map(x => x.HasRecordedData, "no_obsv");
+
+            
 
             HasMany(x => x.CatchList).KeyColumn("l_shaul_id");
             HasMany(x => x.EventList).KeyColumn("l_shaul_id");

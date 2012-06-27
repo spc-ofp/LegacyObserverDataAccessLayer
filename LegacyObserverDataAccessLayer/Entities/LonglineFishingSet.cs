@@ -107,6 +107,27 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string Strategy { get; set; }
 
+        public virtual string HookCalc { get; set; } // Available values are 'E', 'N', or null
+
+        public virtual int? HookDepthLow { get; set; } // Shallowest hook
+
+        public virtual int? HookDepthHigh { get; set; } // Deepest hook
+
+        //br_* are for 1996 workbook revision
+        public virtual int? BranchlineCount_00to20m { get; set; }
+
+        public virtual int? BranchlineCount_20to34m { get; set; }
+
+        public virtual int? BranchlineCount_35to50m { get; set; }
+
+        public virtual int? BranchlineCount_50to99m { get; set; }
+
+        /// <summary>
+        /// Get or set the value of HasRecordedData.
+        /// Indicates if data was recorded with this observed set.  Primarily for AFMA data.
+        /// </summary>
+        public virtual bool? HasRecordedData { get; set; }
+
         public virtual string EnteredBy { get; set; }
 
         public virtual DateTime? EnteredDate { get; set; }
