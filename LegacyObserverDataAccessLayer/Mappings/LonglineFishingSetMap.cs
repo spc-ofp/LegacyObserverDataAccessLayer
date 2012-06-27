@@ -25,6 +25,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.TimeOnly, "settime");
             Map(x => x.UtcDateOnly, "utc_sdate");
             Map(x => x.UtcTimeOnly, "utc_stime");
+            Map(x => x.LocalTime, "l_sethaul_localtime");
             Map(x => x.TargetSpeciesCode, "tar_sp_id").Length(3);
             Map(x => x.TargetSpeciesId, "target_sp_id");
             Map(x => x.HooksPerBasket, "hk_bt_flt");
@@ -92,9 +93,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.BranchlineCount_20to34m, "br_20_34");
             Map(x => x.BranchlineCount_35to50m, "br_35_50");
             Map(x => x.BranchlineCount_50to99m, "br_50_99");
-            Map(x => x.HasRecordedData, "no_obsv");
-
-            
+            Map(x => x.HasRecordedData, "no_obsv");          
 
             HasMany(x => x.CatchList).KeyColumn("l_shaul_id");
             HasMany(x => x.EventList).KeyColumn("l_shaul_id");

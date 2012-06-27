@@ -36,6 +36,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
 
         public virtual string UtcTimeOnly { get; set; }
 
+        public virtual string LocalTime { get; set; }
+
         public virtual string TargetSpeciesCode { get; set; }
 
         public virtual int? TargetSpeciesId { get; set; } // 1 = Tuna, 2 = Swordfish, 3 = Shark
