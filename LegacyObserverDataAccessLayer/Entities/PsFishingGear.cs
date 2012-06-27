@@ -10,10 +10,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class PsFishingGear
+    public class PsFishingGear : FishingGear
     {
-        public virtual int Id { get; set; }
-        public virtual Trip Trip { get; set; }
         public virtual string PowerblockModel { get; set; }
         public virtual int? PowerblockPower { get; set; }
         public virtual int? PowerblockSpeed { get; set; }

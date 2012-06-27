@@ -67,6 +67,7 @@
     <Compile Include="Common\WellContentType.cs" />
     <Compile Include="DataService.cs" />
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="Entities\FishingGear.cs" />
     <Compile Include="Entities\LonglineCatch.cs" />
     <Compile Include="Entities\LonglineConversionFactor.cs" />
     <Compile Include="Entities\LonglineFishingGear.cs" />
@@ -100,9 +101,9 @@
     <Compile Include="Entities\TripHeader.cs" />
     <Compile Include="Entities\Vessel.cs" />
     <Compile Include="Entities\WasteDetail.cs" />
+    <Compile Include="Mappings\FishingGearMap.cs" />
     <Compile Include="Mappings\LonglineCatchMap.cs" />
     <Compile Include="Mappings\LonglineConversionFactorMap.cs" />
-    <Compile Include="Mappings\LonglineFishingGearMap.cs" />
     <Compile Include="Mappings\LonglineFishingSetMap.cs" />
     <Compile Include="Mappings\LonglineSetHaulEventMap.cs" />
     <Compile Include="Mappings\MarineDeviceMap.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Entities\PsDailyEvent.cs" />
     <Compile Include="Mappings\PsDailyEventMap.cs" />
     <Compile Include="Mappings\PsDayMap.cs" />
-    <Compile Include="Mappings\PsFishingGearMap.cs" />
     <Compile Include="Mappings\PsFishingSetMap.cs" />
     <Compile Include="Mappings\PsLengthFrequencyDetailMap.cs" />
     <Compile Include="Mappings\PsLengthFrequencyHeaderMap.cs" />

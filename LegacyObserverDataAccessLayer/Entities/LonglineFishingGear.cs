@@ -9,11 +9,8 @@ namespace Spc.Ofp.Legacy.Observer.Entities
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class LonglineFishingGear
+    public class LonglineFishingGear : FishingGear
     {
-        public virtual int Id { get; set; }
-        public virtual Trip Trip { get; set; }
-
         public virtual bool? HasMainlineHauler { get; set; }
         public virtual string MainlineHaulerComments { get; set; }
 
