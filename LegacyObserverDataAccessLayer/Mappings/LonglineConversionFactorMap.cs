@@ -17,7 +17,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
         public LonglineConversionFactorMap()
         {
             ReadOnly();
-            Table("l_sh_log");
+            Table("l_cfactor");
             Id(x => x.Id, "id").GeneratedBy.Assigned();
             Map(x => x.DateOnly, "cdate");
             Map(x => x.TimeOnly, "ctime");
@@ -39,7 +39,7 @@ namespace Spc.Ofp.Legacy.Observer.Mappings
             Map(x => x.TailWeight, "wt_tail").Precision(8).Scale(3);
             Map(x => x.GutsWeight, "wt_guts").Precision(8).Scale(3);            
             Map(x => x.ProcessedWeight, "wt_pr").Precision(8).Scale(3);
-            Map(x => x.ProcessedWeightCode, "wr_pr_id");
+            Map(x => x.ProcessedWeightCode, "wt_pr_id");
             Map(x => x.LandedWeight, "wt_ld").Precision(8).Scale(3);
             Map(x => x.LandedWeightCode, "wt_ld_id");
 

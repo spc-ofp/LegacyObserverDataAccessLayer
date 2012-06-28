@@ -7,6 +7,7 @@
 namespace Spc.Ofp.Legacy.Observer.Entities
 {
     using System;
+    using Spc.Ofp.Legacy.Observer.ExtensionMethods;
 
     /// <summary>
     /// TODO: Update summary.
@@ -62,5 +63,10 @@ namespace Spc.Ofp.Legacy.Observer.Entities
         public virtual decimal? LandedWeight { get; set; }
 
         public virtual string LandedWeightCode { get; set; }
+
+        public virtual DateTime? GetDate()
+        {
+            return this.DateOnly.Combine(this.TimeOnly);
+        }
     }
 }

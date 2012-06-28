@@ -101,9 +101,9 @@
     <Compile Include="Entities\TripHeader.cs" />
     <Compile Include="Entities\Vessel.cs" />
     <Compile Include="Entities\WasteDetail.cs" />
-    <Compile Include="Mappings\FishingGearMap.cs" />
     <Compile Include="Mappings\LonglineCatchMap.cs" />
     <Compile Include="Mappings\LonglineConversionFactorMap.cs" />
+    <Compile Include="Mappings\LonglineFishingGearMap.cs" />
     <Compile Include="Mappings\LonglineFishingSetMap.cs" />
     <Compile Include="Mappings\LonglineSetHaulEventMap.cs" />
     <Compile Include="Mappings\MarineDeviceMap.cs" />
@@ -118,6 +118,7 @@
     <Compile Include="Entities\PsDailyEvent.cs" />
     <Compile Include="Mappings\PsDailyEventMap.cs" />
     <Compile Include="Mappings\PsDayMap.cs" />
+    <Compile Include="Mappings\PsFishingGearMap.cs" />
     <Compile Include="Mappings\PsFishingSetMap.cs" />
     <Compile Include="Mappings\PsLengthFrequencyDetailMap.cs" />
     <Compile Include="Mappings\PsLengthFrequencyHeaderMap.cs" />
@@ -132,10 +133,12 @@
     <Compile Include="Mappings\TripMap.cs" />
     <Compile Include="Mappings\VesselMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\TestConversionFactor.cs" />
     <Compile Include="Tests\TestDateTimeExtensions.cs" />
     <Compile Include="Tests\TestElectronics.cs" />
     <Compile Include="Tests\TestFieldStaff.cs" />
     <Compile Include="Tests\TestFishTransfer.cs" />
+    <Compile Include="Tests\TestGear.cs" />
     <Compile Include="Tests\TestGen3Form.cs" />
     <Compile Include="Tests\TestLonglineCatch.cs" />
     <Compile Include="Tests\TestLonglineSetHaulEvents.cs" />
